@@ -1,0 +1,17 @@
+﻿@page
+@model CreateCategoryModel
+@{
+    ViewData["Title"] = "New Category";
+}
+
+
+<h2>New Category</h2>
+
+<form method="post">
+    
+    <label asp-for="Category.Name"></label>
+    <input class="form-control" required asp-for="Category.Name" /><br />
+
+        <button class="btn btn-success" type="submit">Save</button>
+        <a class="btn btn-warning" asp-page="./Categories">Cancel</a>
+</form>

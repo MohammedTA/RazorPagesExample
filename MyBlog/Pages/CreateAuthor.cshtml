@@ -1,0 +1,23 @@
+﻿@page
+@model MyBlog.Pages.CreateAuthorModel
+@{
+    ViewData["Title"] = "CreateAuthor";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h2>CreateAuthor</h2>
+
+<form method="post">
+    <label asp-for="Author.Name"></label>
+    <input class="form-control" type="text" asp-for="Author.Name"/>
+    
+    <label asp-for="Author.Email"></label>
+    <input class="form-control" type="text" asp-for="Author.Email"/>
+    
+    <label asp-for="Author.Mobile"></label>
+    <input class="form-control" type="text" asp-for="Author.Mobile"/>
+    
+    <button class="btn btn-success" type="submit">Save</button>
+    <a class="btn btn-warning" asp-page="./Authers">Cancel</a>
+</form>
+

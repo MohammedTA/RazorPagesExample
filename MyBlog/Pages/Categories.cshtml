@@ -1,0 +1,25 @@
+﻿@page
+@model MyBlog.Pages.CategoriesModel
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h2>Categories</h2>
+<a asp-page="/CreateCategory">add new category</a>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cat in Model.Categories)
+    {
+        <tr>
+            <td>@cat.Id</td>
+            <td>@cat.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>

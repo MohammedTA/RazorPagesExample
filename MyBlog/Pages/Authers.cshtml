@@ -1,0 +1,32 @@
+﻿@page
+@model MyBlog.Pages.AuthersModel
+@{
+    ViewData["Title"] = "Authers";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h2>Authers</h2>
+<a asp-page="./CreateAuthor" class="btn btn-danger">Add new Author</a>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Mobile</td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var auther in Model.Authers)
+    {
+        <tr>
+            <td>@auther.Id</td>
+            <td>@auther.Name</td>
+            <td>@auther.Email</td>
+            <td>@auther.Mobile</td>
+        </tr>    
+    }
+
+    </tbody>
+</table>
+
