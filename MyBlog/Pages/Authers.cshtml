@@ -7,26 +7,35 @@
 
 <h2>Authers</h2>
 <a asp-page="./CreateAuthor" class="btn btn-danger">Add new Author</a>
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <td>Id</td>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Mobile</td>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var auther in Model.Authers)
-    {
-        <tr>
-            <td>@auther.Id</td>
-            <td>@auther.Name</td>
-            <td>@auther.Email</td>
-            <td>@auther.Mobile</td>
-        </tr>    
-    }
+<form method="post">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Name</td>
+				<td>Email</td>
+				<td>Mobile</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var auther in Model.Authers)
+			{
+				<tr>
+					<td>@auther.Id</td>
+					<td>@auther.Name</td>
+					<td>@auther.Email</td>
+					<td>@auther.Mobile</td>
+					<td>
+						<a class="btn btn-primary" asp-page="./EditAuthor" asp-route-id="@auther.Id">edit</a>
+						<button class="btn btn-danger" type="submit" 
+								asp-route-EntityId="@auther.Id">
+							delete
+						</button>
+					</td>
+				</tr>
+			}
 
-    </tbody>
-</table>
-
+		</tbody>
+	</table>
+	</form>

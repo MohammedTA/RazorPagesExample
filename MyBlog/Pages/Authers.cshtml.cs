@@ -23,5 +23,19 @@ namespace MyBlog.Pages
         {
             this.Authers = this.context.Authers.ToList();
         }
-    }
+
+	    public IActionResult OnPost(int EntityId)
+	    {
+		    var auther =  this.context.Authers.Find(EntityId);
+
+		    if (auther != null)
+		    {
+			    this.context.Authers.Remove(auther);
+			    this.context.SaveChanges();
+		    }
+
+		    return RedirectToPage();
+	    }
+
+	}
 }
