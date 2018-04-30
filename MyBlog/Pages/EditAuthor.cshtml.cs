@@ -15,17 +15,17 @@ namespace MyBlog.Pages
 			this.context = context;
 		}
 		[BindProperty]
-		public Auther Author { get; set; }
+		public Author Author { get; set; }
 
 		public void OnGet(int id)
 		{
-			Author = context.Authers.Find(id);
+			Author = context.Authors.Find(id);
 		}
 
 		public IActionResult OnPost()
 		{
 			//context.Attach(Author).State = EntityState.Modified;
-			context.Authers.Update(Author);
+			context.Authors.Update(Author);
 			context.SaveChanges();
 			return RedirectToPage("/Authers");
 		}

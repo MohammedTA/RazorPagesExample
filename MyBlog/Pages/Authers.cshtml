@@ -6,7 +6,15 @@
 }
 
 <h2>Authers</h2>
-<a asp-page="./CreateAuthor" class="btn btn-danger">Add new Author</a>
+<form method="get">	
+	<label>Id</label>
+	<input class="form-control" type="number" name="id" value="@Model.Request.Query["id"]"/>
+    
+	<label>Name</label>
+	<input class="form-control" type="text" name="authorname" value="@Model.Request.Query["authorname"]"/>
+	<button type="submit" class="btn btn-success">Search</button>
+</form>
+<a asp-page="./CreateAuthor" class="btn btn-danger pull-right">Add new Author</a>
 <form method="post">
 	<table class="table table-bordered">
 		<thead>
@@ -19,7 +27,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var auther in Model.Authers)
+			@foreach (var auther in Model.Authors)
 			{
 				<tr>
 					<td>@auther.Id</td>
@@ -29,7 +37,7 @@
 					<td>
 						<a class="btn btn-primary" asp-page="./EditAuthor" asp-route-id="@auther.Id">edit</a>
 						<button class="btn btn-danger" type="submit" 
-								asp-route-EntityId="@auther.Id">
+								asp-route-id="@auther.Id">
 							delete
 						</button>
 					</td>

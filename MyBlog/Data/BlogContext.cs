@@ -14,14 +14,14 @@ namespace MyBlog.Data
         }
 
         public DbSet<Post> Posts { get; set; }
-        public DbSet<Auther> Authers { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Post>().ToTable("Post");
-            modelBuilder.Entity<Auther>().ToTable("Auther");
+            modelBuilder.Entity<Author>().ToTable("Auther");
             modelBuilder.Entity<Comment>().ToTable("Comment");
             modelBuilder.Entity<Category>().ToTable("Category");
 
@@ -31,11 +31,11 @@ namespace MyBlog.Data
                 .WithMany(t => t.Posts)
                 .HasForeignKey(t => t.CategoryId);
 
-            modelBuilder.Entity<Post>().HasOne(t => t.Auther)
+            modelBuilder.Entity<Post>().HasOne(t => t.Author)
                 .WithMany(t => t.Posts)
                 .HasForeignKey(t => t.AutherId);
 
-            modelBuilder.Entity<Auther>().HasKey(e => e.Id);
+            modelBuilder.Entity<Author>().HasKey(e => e.Id);
             modelBuilder.Entity<Comment>().HasKey(e => e.Id);
 
             modelBuilder.Entity<Comment>().HasOne(t => t.Post)

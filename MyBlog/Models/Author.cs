@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace MyBlog.Models
 {
-    public class Auther
+    public class Author
     {
         public int Id { get; set; }
         public string Name { get; set; }

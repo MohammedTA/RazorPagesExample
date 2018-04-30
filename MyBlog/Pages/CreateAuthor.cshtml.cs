@@ -13,7 +13,7 @@ namespace MyBlog.Pages
     {
         public BlogContext context;
         [BindProperty]
-        public Auther Author { get; set; }
+        public Author Author { get; set; }
 
         public CreateAuthorModel(BlogContext context)
         {
@@ -21,12 +21,12 @@ namespace MyBlog.Pages
         }
         public void OnGet()
         {
-            this.Author = new Auther();
+            this.Author = new Author();
         }
 
         public IActionResult OnPost()
         {
-            this.context.Authers.Add(this.Author);
+            this.context.Authors.Add(this.Author);
             this.context.SaveChanges();
 
             return RedirectToPage("./Authers");

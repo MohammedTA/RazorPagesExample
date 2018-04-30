@@ -14,7 +14,7 @@ namespace MyBlog.Models
         public int AutherId { get; set; }
 
         public virtual Category Category { get; set; }
-        public virtual Auther Auther { get; set; }
+        public virtual Author Author { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
     }
